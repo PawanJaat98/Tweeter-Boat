@@ -1,32 +1,10 @@
-name: Tweet Bot
-
-on:
-  schedule:
-    - cron: '0 * * * *'  # Runs every hour
-
-  workflow_dispatch:  # Allows manual trigger if needed
-
-jobs:
-  tweet:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'  # Use the same Python version as your project
-
-      - name: Install Dependencies
-        run: pip install -r requirements.txt
-
-      - name: Run Tweet Bot
-        env:
-          TWITTER_BEARER_TOKEN: ${{ secrets.TWITTER_BEARER_TOKEN }}
-          TWEETER_API_KEY: ${{ secrets.TWEETER_API_KEY }}
-          TWEETER_API_SECRET: ${{ secrets.TWEETER_API_SECRET }}
-          TWEETER_ACCESS_TOKEN: ${{ secrets.TWEETER_ACCESS_TOKEN }}
-          TWEETER_ACCESS_SECRET: ${{ secrets.TWEETER_ACCESS_SECRET }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: python main.py
+- name: Run Tweet Bot
+  env:
+ 
+    TWEETER_API_KEY: ${{ secrets.TWEETER_API_KEY }}
+    TWEETER_API_SECRET: ${{ secrets.TWEETER_API_SECRET }}
+    TWEETER_ACCESS_TOKEN: ${{ secrets.TWEETER_ACCESS_TOKEN }}
+    TWEETER_ACCESS_SECRET: ${{ secrets.TWEETER_ACCESS_SECRET }}
+    GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+  run: |
+    python main.py || echo "Script failed, check logs"
