@@ -1,6 +1,5 @@
 - name: Run Tweet Bot
   env:
- 
     TWEETER_API_KEY: ${{ secrets.TWEETER_API_KEY }}
     TWEETER_API_SECRET: ${{ secrets.TWEETER_API_SECRET }}
     TWEETER_ACCESS_TOKEN: ${{ secrets.TWEETER_ACCESS_TOKEN }}
