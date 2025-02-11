@@ -55,5 +55,7 @@ def post_tweet():
 
 
 print("Bot is running... Tweeting every  hour.")
+
+post_tweet()
 # Keep running the script
 
