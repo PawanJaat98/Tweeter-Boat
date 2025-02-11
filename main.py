@@ -1,8 +1,7 @@
 import tweepy
 import google.generativeai as genai
 import os
-import schedule
-import time
+
 from dotenv import load_dotenv
 
 # Load API keys from .env
@@ -53,10 +52,8 @@ def post_tweet():
         print("Error posting tweet:", e)
 
 # Schedule the bot to run every 3 hours
-schedule.every(3).hours.do(post_tweet)
 
-print("Bot is running... Tweeting every 3 hours.")
+
+print("Bot is running... Tweeting every  hour.")
 # Keep running the script
-while True:
-    schedule.run_pending()
-    time.sleep(60)  # Wait for 1 minute before checking again
+
