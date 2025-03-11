@@ -28,7 +28,7 @@ client = tweepy.Client(
 
 # Setup Gemini API
 genai.configure(api_key=GEMINI_API_KEY)
-model = genai.GenerativeModel("gemini-pro-1.5'")
+model = genai.GenerativeModel("gemini-pro-1.5")
 
 # Function to generate a tweet using Gemini
 def generate_tweet():
